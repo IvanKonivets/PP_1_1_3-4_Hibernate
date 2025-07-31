@@ -43,17 +43,16 @@ public class Util {
                 Configuration configuration = new Configuration();
 
                 Properties prop = new Properties();
-                prop.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
-                prop.put(Environment.URL, "jdbc:mysql://localhost:3306/dbtest?useSSL=false");
-                prop.put(Environment.USER, "root");
-                prop.put(Environment.PASS, "rootmsk");
+                prop.put(Environment.DRIVER, DB_DRIVER);
+                prop.put(Environment.URL, DB_URL);
+                prop.put(Environment.USER, DB_USERNAME);
+                prop.put(Environment.PASS, DB_PASSWORD);
                 prop.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
                 prop.put(Environment.SHOW_SQL, "true");
                 prop.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
                 prop.put(Environment.HBM2DDL_AUTO, "");
 
                 configuration.setProperties(prop);
-
                 configuration.addAnnotatedClass(User.class);
 
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
